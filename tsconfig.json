@@ -5,6 +5,10 @@
     "moduleResolution": "node",
     "lib": ["es6", "dom"],
     "strict": true,
-    "pretty": true
+    "pretty": true,
+    "noUnusedLocals": true,
+    "noImplicitReturns": true,
+    "forceConsistentCasingInFileNames": true,
+    "removeComments": true
   }
 }

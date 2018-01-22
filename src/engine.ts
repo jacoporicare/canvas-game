@@ -1,5 +1,3 @@
-import { physics } from './physics';
-
 export type Handler<TModel, TEvent extends Event> = (
   model: TModel,
   event: TEvent

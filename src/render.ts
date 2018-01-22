@@ -3,7 +3,6 @@ import { canvasWidth, canvasHeight, groundHeight } from './consts';
 
 export function render(model: Model) {
   const { ctx, player, enemies, playTime, highScore } = model;
-  const { size } = player;
 
   const debug = document.getElementById('debug');
   if (debug && process.env.NODE_ENV === 'development') {

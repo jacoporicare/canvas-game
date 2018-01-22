@@ -2,7 +2,7 @@ import { createCanvas } from './canvas';
 import { engine, Handle } from './engine';
 import { physics } from './physics';
 import { render as renderCanvas } from './render';
-import { Model, Moveable } from './types';
+import { Model } from './types';
 import { canvasWidth, canvasHeight } from './consts';
 
 import './styles.css';
