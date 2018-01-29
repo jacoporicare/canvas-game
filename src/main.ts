@@ -22,15 +22,27 @@ const defaultMoveables = {
   },
   enemies: [
     {
-      x: -300,
+      x: -350,
+      y: 0,
+      vx: 0,
+      vy: 0,
+      angle: 0,
+      moveDir: 0,
+      hSpeed: 0.45,
+      vSpeed: 0,
+      size: 15,
+      color: 'red',
+    },
+    {
+      x: 350,
       y: 0,
       vx: 0,
       vy: 0,
       angle: 0,
       moveDir: 0,
       hSpeed: 0.5,
-      vSpeed: 1,
-      size: 15,
+      vSpeed: 1.2,
+      size: 20,
       color: 'red',
     },
   ],
@@ -68,10 +80,19 @@ function update(dt: number, model: Model) {
   const player = physics(dt, model.player);
   const enemies = model.enemies.map(e => {
     const enemy = physics(dt, e);
+    const distance = Math.abs(enemy.x - player.x);
+    let moveDir;
+
+    if (enemy.y > 0) {
+      moveDir = enemy.moveDir;
+    } else {
+      moveDir = enemy.x > player.x ? -1 : 1;
+    }
 
     return {
       ...enemy,
-      moveDir: enemy.x > player.x ? -1 : 1,
+      moveDir,
+      vy: distance < 100 && enemy.vy === 0 ? enemy.vSpeed : enemy.vy,
     };
   });
   const gameOver = enemies.some(
